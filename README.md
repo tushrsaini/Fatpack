@@ -8,7 +8,7 @@ A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader
 
 ## Features
 
-- Full (Thread Local Storage) support  
+- Full TLS (Thread Local Storage) support  
 - LZMA compression  
 - Support for native Console- and Windows executables (x64 only)
 - No CRT usage in Fatpack.exe and Stubs (WinAPI only) and therefore no C/C++ redistributables required
