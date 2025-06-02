@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Shared\BinaryFileReader\BinaryFileReader.cpp">
+      <Filter>BinaryFileReader</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="BinaryFileReader">
+      <UniqueIdentifier>{3cefc128-4c6a-46e4-b9ea-532d6421101c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Shared\BinaryFileReader\BinaryFileReader.h">
+      <Filter>BinaryFileReader</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

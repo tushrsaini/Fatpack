@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Shared\CRT\crt.cpp">
+      <Filter>CRT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\PELoader\PELoader\PEFile.cpp">
+      <Filter>PELoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\PELoader\PELoader\PEImage.cpp">
+      <Filter>PELoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\PELoader\PELoader\PELoader.cpp">
+      <Filter>PELoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\PELoader\PELoader\TlsResolver.cpp">
+      <Filter>PELoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\ResourceLoader\ResourceLoader.cpp">
+      <Filter>ResourceLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\Decompressor\Decompressor.cpp">
+      <Filter>Decompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\Decompressor\TinyLzmaDecompress.cpp">
+      <Filter>Decompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\PELoaderStub\PELoaderStub.cpp">
+      <Filter>PELoaderStub</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CRT">
+      <UniqueIdentifier>{26ee8355-4a30-474e-9804-2a5dd66241ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceLoader">
+      <UniqueIdentifier>{f26f6ac7-016a-4050-92a7-fa09dd2d02ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TypeDefs">
+      <UniqueIdentifier>{76cc35a7-9632-4fb7-abdf-ad58935b1ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TlsCallbackProxy">
+      <UniqueIdentifier>{99f38114-3632-4185-9806-112071789014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PELoader">
+      <UniqueIdentifier>{15defd60-dee7-4278-b7d5-caa308c1731f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Decompressor">
+      <UniqueIdentifier>{5779bd0d-7384-41a8-85b9-7496dd4e3b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PELoaderStub">
+      <UniqueIdentifier>{ccd74711-d078-4364-8337-d80c7b100c2d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Shared\CRT\crt.h">
+      <Filter>CRT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\CRT\crt_tls.h">
+      <Filter>CRT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\PELoader\PEFile.h">
+      <Filter>PELoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\PELoader\PEImage.h">
+      <Filter>PELoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\PELoader\PELoader.h">
+      <Filter>PELoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\PELoader\TlsResolver.h">
+      <Filter>PELoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\TlsCallbackProxy\TlsCallbackProxy.h">
+      <Filter>TlsCallbackProxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoader\TypeDefs\peb.h">
+      <Filter>TypeDefs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\ResourceLoader\ResourceLoader.h">
+      <Filter>ResourceLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\Decompressor\Decompressor.h">
+      <Filter>Decompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\Decompressor\TinyLzmaDecompress.h">
+      <Filter>Decompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Shared\PELoaderStub\PELoaderStub.h">
+      <Filter>PELoaderStub</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

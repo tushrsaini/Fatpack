@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{23b3307d-097a-4f6f-bd3d-ab61bea6d30c}</ProjectGuid>
+    <RootNamespace>Fatpack</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\obj\Fatpack\$(Platform)\$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\obj\Fatpack\$(Platform)\$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary />
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalOptions>/Zc:threadSafeInit- /Gs10000000 %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary />
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/DEBUG:NONE /EMITPOGOPHASEINFO %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Shared\BinaryFileReader\BinaryFileReader.cpp" />
+    <ClCompile Include="..\Shared\CRT\crt.cpp" />
+    <ClCompile Include="..\Shared\ResourceLoader\ResourceLoader.cpp" />
+    <ClCompile Include="BinaryFileWriter\BinaryFileWriter.cpp" />
+    <ClCompile Include="CommandLine\CommandLine.cpp" />
+    <ClCompile Include="Compessor\Compressor.cpp" />
+    <ClCompile Include="Compessor\lzma\common_internal.c" />
+    <ClCompile Include="Compessor\lzma\compress.c" />
+    <ClCompile Include="Compessor\lzma\decompress.c" />
+    <ClCompile Include="Compessor\lzma\lzip_header.c" />
+    <ClCompile Include="Compessor\lzma\lzma_header.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\7zBuf.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\7zBuf2.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\7zCrc.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\7zFile.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\7zStream.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\Alloc.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\Bcj2.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\Bra.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\Bra86.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\BraIA64.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\LzFind.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\LzmaDec.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\LzmaEnc.c" />
+    <ClCompile Include="Compessor\lzma\pavlov\LzmaLib.c" />
+    <ClCompile Include="Compessor\lzma\wrapper\easylzmawrapper.cpp" />
+    <ClCompile Include="Console\Console.cpp" />
+    <ClCompile Include="IconExtractor\IconExtractor.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ManifestExtractor\ManifestExtractor.cpp" />
+    <ClCompile Include="PEFile\PEFile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Shared\BinaryFileReader\BinaryFileReader.h" />
+    <ClInclude Include="..\Shared\CRT\crt.h" />
+    <ClInclude Include="..\Shared\ResourceLoader\ResourceLoader.h" />
+    <ClInclude Include="BinaryFileWriter\BinaryFileWriter.h" />
+    <ClInclude Include="CommandLine\CommandLine.h" />
+    <ClInclude Include="Compessor\Compressor.h" />
+    <ClInclude Include="Compessor\lzma\common_internal.h" />
+    <ClInclude Include="Compessor\lzma\easylzma\common.h" />
+    <ClInclude Include="Compessor\lzma\easylzma\compress.h" />
+    <ClInclude Include="Compessor\lzma\easylzma\decompress.h" />
+    <ClInclude Include="Compessor\lzma\lzip_header.h" />
+    <ClInclude Include="Compessor\lzma\lzma_header.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\7zBuf.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\7zCrc.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\7zFile.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\7zVersion.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\Alloc.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\Bcj2.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\Bra.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\CpuArch.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\LzFind.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\LzHash.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\LzmaDec.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\LzmaEnc.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\LzmaLib.h" />
+    <ClInclude Include="Compessor\lzma\pavlov\Types.h" />
+    <ClInclude Include="Compessor\lzma\wrapper\easylzmawrapper.h" />
+    <ClInclude Include="Console\Console.h" />
+    <ClInclude Include="IconExtractor\IconExtractor.h" />
+    <ClInclude Include="ManifestExtractor\ManifestExtractor.h" />
+    <ClInclude Include="PEFile\PEFile.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
