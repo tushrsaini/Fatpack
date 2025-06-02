@@ -2,7 +2,7 @@
 
 A Windows PE packer (x64) with LZMA compression and with full TLS (Thread Local Storage) support.  
 
-Keywords: PE packer, PE loader, manual mapping, manual mapper, portable executable, LZMA, UPX, EXE
+Keywords: PE packer, PE loader, PE loading, manual mapper, manual mapping, portable executable, thread local storage, TLS, EXE, LZMA, UPX  
 
 ## Motivation
 
@@ -41,7 +41,11 @@ A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader
 
 ## Solution Overview
 
-To do
+To do  
+
+## Fatpack vs UPX  
+
+to do  
 
 ## Third Party Software  
 
