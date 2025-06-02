@@ -75,7 +75,9 @@ The console application (``Fatpack.exe``) is used by the user to package their t
 - Extracting and embedding the application manifest from the target executable. This step is essential, as the manifest may specify specific module versions required for correct execution.  
 - Compressing the target executable using the LZMA algorithm and appending it to the loader stub.  
 
->**Note:** Rebasing of the loader stub is not yet implemented. If the target executable lacks a relocation table, the loader stub may fail to function properly. This is due to a potential conflict between the image base addresses of the loader stub and the target executable.
+>**Note:** Rebasing of the loader stub is not yet implemented. If the target executable lacks a relocation table, the loader stub may fail to function properly. This is due to a potential conflict between the image base addresses of the loader stub and the target executable.  
+
+![image](Images/Concept.PNG)
 
 ## Fatpack vs UPX  
 
