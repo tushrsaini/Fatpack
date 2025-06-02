@@ -95,7 +95,8 @@ The console application (``Fatpack.exe``) is used by the user to package their t
 | 20 kb       	| **11 kb**   	| **11 kb**   	| 18 kb   	|
 | 15 kb       	| **10 kb**  	| **10 kb**   	| 17 kb   	|  
 
-Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.
+Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.  
+> *Note:* UPX did not support the 448 kb target, i used UPX 5.0.1
 
 ## Third Party Software  
 
