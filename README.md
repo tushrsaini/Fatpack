@@ -68,7 +68,18 @@ A simple console application used to embed the loader stubs into ``Fatpack.exe``
 
 ### Fatpack
 
+The console application (``Fatpack.exe``) is used by the user to package their target executable. Its main responsibilities include:  
 
+- Determining the appropriate loader stub (Loader_Console or Loader_Windows) based on the type of the target executable, loading it from an embedded resource, and saving it to disk.  
+- Extracting the icon from the target executable and embedding it into the selected loader stub.  
+- Extracting and embedding the application manifest from the target executable. This step is essential, as the manifest may specify specific module versions required for correct execution.  
+- Compressing the target executable using the LZMA algorithm and appending it to the loader stub.  
+
+>**Note:** Rebasing of the loader stub is not yet implemented. If the target executable lacks a relocation table, the loader stub may fail to function properly. This is due to a potential conflict between the image base addresses of the loader stub and the target executable.
+
+## Fatpack vs UPX  
+
+to do
 
 ## Third Party Software  
 
