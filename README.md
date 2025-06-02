@@ -10,13 +10,17 @@ A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader
 
 - Full (Thread Local Storage) support  
 - LZMA compression  
-- Support for native Console and Windows executables (x64 only)
+- Support for native Console- and Windows executables (x64 only)
 
 ## Usage
 
 ``Fatpack.exe inputfile.exe outputfile.exe``
 
 ## Solution Overview
+
+To do
+
+## Third Party Software  
 
 To do
 
