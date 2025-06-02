@@ -83,7 +83,19 @@ The console application (``Fatpack.exe``) is used by the user to package their t
 
 ## Fatpack vs UPX  
 
-to do
+| Target size 	| UPX     	| UPX -9  	| Fatpack 	|
+|-------------	|---------	|---------	|---------	|
+| 6744 kb     	| 1735 kb 	| 1669 kb 	| **1608 kb** 	|
+| 2728 kb     	| 1052 kb 	| **1034 kb** 	| 1035 kb 	|
+| 611 kb      	| 86 kb   	| 83 kb   	| **80 kb**   	|
+| 533 kb      	| 213 kb  	| 210 kb  	| **199 kb**  	|
+| 448 kb      	| -       	| -       	| **193 kb**  	|
+| 233 kb      	| 89 kb   	| 89 kb   	| **85 kb**   	|
+| 32 kb       	| **9 kb**    	| **9 kb**    	| 16 kb   	|
+| 20 kb       	| **11 kb**   	| **11 kb**   	| 18 kb   	|
+| 15 kb       	| **10 kb**  	| **10 kb**   	| 17 kb   	|  
+
+Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.
 
 ## Third Party Software  
 
