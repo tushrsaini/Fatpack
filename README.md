@@ -43,22 +43,24 @@ A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader
 
 The solution consists of four projects:  
 
-- The console application ``Fatpack.exe``, which the user employs to pack their target executable.
-- The loader stubs ``Loader_Console`` and ``Loader_Windows``, which serve as containers for the packed target executable and are responsible for loading and executing it.
-- ``ResourceAdder``, a helper executable that adds the loader stubs to ``Fatpack.exe`` as post-build step, using the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.
+- ``Fatpack``  
+  - The console application ``Fatpack.exe``, which the user employs to pack their target executable.  
+  
+- Loader stubs  
+  - The loader stubs serve as containers for the packed target executable and are responsible for loading and executing it.  
+  - ``Loader_Console``  
+  - ``Loader_Windows``  
+  
+- ``ResourceAdder``
+  - ``ResourceAdder.exe``, a helper executable that adds the loader stubs to ``Fatpack.exe`` as post-build step, using the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.
 
 ### Loader Stubs  
 
 Both ``Loader_Console`` and ``Loader_Windows`` serve as loader stubs. Upon startup, they retrieve the packed target executable from their embedded resources, unpack it in memory, and execute it.  
 The loader logic is available at: https://github.com/Fatmike-GH/PELoader  
 
-#### Loader_Console  
-
-The loader stub for loading console applications.  
-
-#### Loader_Windows  
-
-The loader stub for loading windows applications.  
+- ``Loader_Console``: The loader stub for loading console applications.  
+- ``Loader_Windows``: The loader stub for loading windows applications.  
 
 ### ResourceAdder  
 
