@@ -41,7 +41,34 @@ A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader
 
 ## Solution Overview
 
-To do
+The solution consists of four projects:  
+
+- The console application ``Fatpack.exe``, which the user employs to pack their target executable.
+- The loader stubs ``Loader_Console`` and ``Loader_Windows``, which serve as containers for the packed target executable and are responsible for loading and executing it.
+- ``ResourceAdder``, a helper executable that adds the loader stubs to ``Fatpack.exe`` as post-build step, using the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.
+
+### Loader Stubs  
+
+Both ``Loader_Console`` and ``Loader_Windows`` serve as loader stubs. Upon startup, they retrieve the packed target executable from their embedded resources, unpack it in memory, and execute it.  
+The loader logic is available at: https://github.com/Fatmike-GH/PELoader  
+
+#### Loader_Console  
+
+The loader stub for loading console applications.  
+
+#### Loader_Windows  
+
+The loader stub for loading windows applications.  
+
+### ResourceAdder  
+
+A simple console application used to embed the loader stubs into ``Fatpack.exe`` as post-build step. This integration is handled via the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.  
+
+>**Note:** Always use **"Rebuild Solution"** after making changes to ensure that the post-build steps execute correctly.  
+
+### Fatpack
+
+
 
 ## Third Party Software  
 
