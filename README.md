@@ -81,21 +81,23 @@ The console application (``Fatpack.exe``) is used by the user to package their t
 
 ![image](Images/Concept.PNG)
 
-## Fatpack vs UPX  
+## Fatpack vs UPX 5.0.1 
 
-| Target size 	| UPX     	| UPX -9  	| Fatpack 	|
-|-------------	|---------	|---------	|---------	|
-| 6744 kb     	| 1735 kb 	| 1669 kb 	| **1608 kb** 	|
-| 2728 kb     	| 1052 kb 	| **1034 kb** 	| 1035 kb 	|
-| 611 kb      	| 86 kb   	| 83 kb   	| **80 kb**   	|
-| 533 kb      	| 213 kb  	| 210 kb  	| **199 kb**  	|
-| 448 kb      	| -       	| -       	| **193 kb**  	|
-| 233 kb      	| 89 kb   	| 89 kb   	| **85 kb**   	|
-| 32 kb       	| **9 kb**    	| **9 kb**    	| 16 kb   	|
-| 20 kb       	| **11 kb**   	| **11 kb**   	| 18 kb   	|
-| 15 kb       	| **10 kb**  	| **10 kb**   	| 17 kb   	|  
+| Target size 	| UPX     	| UPX -9  	| Fatpack 	| Target info                                   	|
+|-------------	|---------	|---------	|---------	|-----------------------------------------------	|
+| 6744 kb     	| 1735 kb 	| 1669 kb 	| **1608 kb** 	| Embarcadero Delphi(XE3-X4)[Professional]      	|
+| 2728 kb     	| 1052 kb 	| **1034 kb** 	| 1035 kb 	| Rust                                          	|
+| 611 kb      	| 86 kb   	| 83 kb   	| **80 kb**   	| Microsoft Visual C/C++(19.36.34808)[C++]      	|
+| 533 kb      	| 213 kb  	| 210 kb  	| **199 kb**  	| Rust                                          	|
+| 448 kb      	| -       	| -       	| **193 kb**  	| Rust                                          	|
+| 233 kb      	| 89 kb   	| 89 kb   	| **85 kb**   	| Microsoft Visual C/C++(19.36.34436)[LTCG/C++] 	|
+| 32 kb       	| **9 kb**    	| **9 kb**    	| 16 kb   	| Microsoft Visual C/C++(19.29.30139)[LTCG/C]   	|
+| 20 kb       	| **11 kb**  	| **11 kb**   	| 18 kb   	| Microsoft Visual C/C++(19.36.34808)[LTCG/C++] 	|
+| 15 kb       	| **10 kb**   	| **10 kb**   	| 17 kb   	| Microsoft Visual C/C++(19.36.34808)[LTCG/C++] 	|
 
-Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.
+Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.  
+
+> **Note:** UPX did not support the 448 kb target
 
 ## Third Party Software  
 
