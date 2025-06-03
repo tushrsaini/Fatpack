@@ -19,7 +19,9 @@ int main()
   auto argv = commandLine.CommandLineToArgv(args, argc);
   if (argc != 3)
   {
-    console.WriteLine(L"Usage: fatpack inputfile.exe outputfile.exe");
+    console.WriteLine(L"\n..::[Fatmike 2025]::..\n");
+    console.WriteLine(L"Version: Fatpack v1.0.0");
+    console.WriteLine(L"Usage:\t fatpack.exe inputfile.exe outputfile.exe");
     return 0;
   }
 
