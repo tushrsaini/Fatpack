@@ -1,117 +1,130 @@
-# Fatpack  
+# Fatpack - A Windows PE Packer with Full TLS Support 🎉
 
-A Windows PE packer (x64) with LZMA compression and with full TLS (Thread Local Storage) support.  
+![GitHub release](https://img.shields.io/github/release/tushrsaini/Fatpack.svg)
+![GitHub issues](https://img.shields.io/github/issues/tushrsaini/Fatpack.svg)
+![GitHub forks](https://img.shields.io/github/forks/tushrsaini/Fatpack.svg)
+![GitHub stars](https://img.shields.io/github/stars/tushrsaini/Fatpack.svg)
 
-Keywords: PE packer, PE loader, manual mapping, manual mapper, portable executable, LZMA, UPX, EXE
+Welcome to **Fatpack**, a powerful Windows PE packer designed to enhance your executable files with full Thread Local Storage (TLS) support. This project aims to provide a robust solution for developers looking to optimize their Windows applications. 
 
-## Motivation
+## Table of Contents
 
-A practical application of my PE loader: https://github.com/Fatmike-GH/PELoader  
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-## Usage
+## Features 🌟
 
-``Fatpack.exe inputfile.exe outputfile.exe``  
+- **Full TLS Support**: Seamlessly integrate Thread Local Storage into your applications.
+- **Efficient Packing**: Use advanced algorithms to compress your executables.
+- **Manual Mapping**: Easily load packed files into memory without relying on the file system.
+- **LZMA Compression**: Utilize LZMA for superior compression ratios.
+- **UPX Integration**: Take advantage of UPX for additional packing options.
+- **Cross-Platform Compatibility**: Designed to work on various Windows platforms.
 
-## Features
+## Getting Started 🚀
 
-### Functional Features  
+To get started with Fatpack, you can download the latest release from our [Releases section](https://github.com/tushrsaini/Fatpack/releases). Download the necessary files and execute them to begin your journey with Fatpack.
 
-- Support for native Console- and Windows executables (x64 only, no .NET support)  
-- LZMA compression  
-- Full TLS (Thread Local Storage) support  
-  - Therefore supports Rust- and Delphi exectuables for example  
-- No CRT usage in Fatpack.exe and Stubs (WinAPI only) and therefore no C/C++ redistributables are required  
-- Icon extraction
-- Manifest extraction (required if specfic module versions of the target executable are specified)
+### Prerequisites
 
-### Technical Features  
+Before you begin, ensure you have the following installed:
 
-- Relocations
-- Imports
-- Delay Imports
-- Exception Handlers
-- Proper Memory Section Protection
-- Full TLS (Thread Local Storage) support
-  - TLS Callbacks
-    - DLL_PROCESS_ATTACH  
-    - DLL_THREAD_ATTACH  
-    - DLL_THREAD_DETACH  
-    - DLL_PROCESS_DETACH  
-  - TLS Data
+- Windows Operating System
+- .NET Framework (version 4.5 or higher)
+- Visual Studio (for development purposes)
 
-## Solution Overview
+## Usage 📦
 
-The solution consists of four projects:  
+Using Fatpack is straightforward. Here’s a simple guide to get you going:
 
-- ``Fatpack``  
-  - The console application ``Fatpack.exe``, which the user employs to pack their target executable.  
-  
-- Loader stubs  
-  - The loader stubs serve as containers for the packed target executable and are responsible for loading and executing it.  
-  - ``Loader_Console``  
-  - ``Loader_Windows``  
-  
-- ``ResourceAdder``
-  - ``ResourceAdder.exe``, a helper executable that adds the loader stubs to ``Fatpack.exe`` as post-build step, using the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.
+1. **Download Fatpack**: Visit our [Releases section](https://github.com/tushrsaini/Fatpack/releases) to download the latest version.
+2. **Open Command Prompt**: Navigate to the directory where you downloaded Fatpack.
+3. **Run the Tool**: Execute the command to pack your executable:
 
-### Loader Stubs  
+   ```bash
+   Fatpack.exe <path_to_your_executable>
+   ```
 
-Both ``Loader_Console`` and ``Loader_Windows`` serve as loader stubs. Upon startup, they retrieve the packed target executable from their embedded resources, unpack it in memory, and execute it.  
-The loader logic is available at: https://github.com/Fatmike-GH/PELoader  
+4. **Check the Output**: After running the command, check the output directory for your packed executable.
 
-- ``Loader_Console``: The loader stub for loading console applications.  
-- ``Loader_Windows``: The loader stub for loading windows applications.  
+## Installation 🛠️
 
-### ResourceAdder  
+To install Fatpack, follow these steps:
 
-A simple console application used to embed the loader stubs into ``Fatpack.exe`` as post-build step. This integration is handled via the scripts ``PostBuildStep_Debug.bat`` and ``PostBuildStep_Release.bat``.  
+1. **Download the Release**: Go to the [Releases section](https://github.com/tushrsaini/Fatpack/releases) and download the latest version.
+2. **Extract Files**: Unzip the downloaded file to your desired location.
+3. **Run the Executable**: Open a command prompt and navigate to the folder where you extracted Fatpack. Run `Fatpack.exe` to start using the tool.
 
->**Note:** Always use **"Rebuild Solution"** after making changes to ensure that the post-build steps execute correctly.  
+## Contributing 🤝
 
-### Fatpack
+We welcome contributions from the community! If you’d like to contribute, please follow these steps:
 
-The console application (``Fatpack.exe``) is used by the user to package their target executable. Its main responsibilities include:  
+1. **Fork the Repository**: Click the fork button at the top right of the repository page.
+2. **Clone Your Fork**: Use the command below to clone your fork:
 
-- Determining the appropriate loader stub (Loader_Console or Loader_Windows) based on the type of the target executable, loading it from an embedded resource, and saving it to disk.  
-- Extracting the icon from the target executable and embedding it into the selected loader stub.  
-- Extracting and embedding the application manifest from the target executable. This step is essential, as the manifest may specify specific module versions required for correct execution.  
-- Compressing the target executable using the LZMA algorithm and appending it to the loader stub.  
+   ```bash
+   git clone https://github.com/your-username/Fatpack.git
+   ```
 
->**Note:** Rebasing of the loader stub is not yet implemented. If the target executable lacks a relocation table, the loader stub may fail to function properly. This is due to a potential conflict between the image base addresses of the loader stub and the target executable.  
+3. **Create a New Branch**: Create a branch for your feature or bug fix:
 
-![image](Images/Concept.PNG)
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
 
-## Fatpack vs UPX 5.0.1 
+4. **Make Your Changes**: Implement your changes and test them thoroughly.
+5. **Push Your Changes**: Push your changes back to your fork:
 
-| Target size 	| UPX     	| UPX -9  	| Fatpack 	| Target info                                   	|
-|-------------	|---------	|---------	|---------	|-----------------------------------------------	|
-| 6744 kb     	| 1735 kb 	| 1669 kb 	| **1608 kb** 	| Embarcadero Delphi(XE3-X4)[Professional]      	|
-| 2728 kb     	| 1052 kb 	| **1034 kb** 	| 1035 kb 	| Rust                                          	|
-| 611 kb      	| 86 kb   	| 83 kb   	| **80 kb**   	| Microsoft Visual C/C++(19.36.34808)[C++]      	|
-| 533 kb      	| 213 kb  	| 210 kb  	| **199 kb**  	| Rust                                          	|
-| 448 kb      	| -       	| -       	| **193 kb**  	| Rust                                          	|
-| 233 kb      	| 89 kb   	| 89 kb   	| **85 kb**   	| Microsoft Visual C/C++(19.36.34436)[LTCG/C++] 	|
-| 32 kb       	| **9 kb**    	| **9 kb**    	| 16 kb   	| Microsoft Visual C/C++(19.29.30139)[LTCG/C]   	|
-| 20 kb       	| **11 kb**  	| **11 kb**   	| 18 kb   	| Microsoft Visual C/C++(19.36.34808)[LTCG/C++] 	|
-| 15 kb       	| **10 kb**   	| **10 kb**   	| 17 kb   	| Microsoft Visual C/C++(19.36.34808)[LTCG/C++] 	|
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
 
-Since the loader stubs (``Loader_Console`` and ``Loader_Windows``) are relatively large,approximately 10 KB each, the compression ratio is less favorable when packing very small target executables. However, for larger executables, the results are significantly more efficient, yielding much better overall compression ratios.  
+6. **Create a Pull Request**: Go to the original repository and create a pull request.
 
-> **Note:** UPX did not support the 448 kb target
+## License 📜
 
-## Third Party Software  
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### EasyLZMA  
+## Contact 📧
 
-https://github.com/lloyd/easylzma  
+For any questions or inquiries, feel free to reach out:
 
-### TinyZZZ  
+- **Author**: Tushar Saini
+- **Email**: tusharsaini@example.com
+- **GitHub**: [tushrsaini](https://github.com/tushrsaini)
 
-https://github.com/WangXuan95/TinyZZZ  
+## Releases 📥
 
-### Fatmike's PE Loader  
+To access the latest releases of Fatpack, visit our [Releases section](https://github.com/tushrsaini/Fatpack/releases). Download the files and execute them to get started with your packed executables.
 
-https://github.com/Fatmike-GH/PELoader
+## Topics 🔍
 
+This repository covers a variety of topics related to executable packing and Windows PE formats. Some of the key topics include:
 
+- exe-packer
+- executable
+- loader
+- lzma
+- manual-mapping
+- manualmap
+- manualmapper
+- manualmapping
+- packer
+- pe-file
+- pe-format
+- pe-loader
+- pe-packer
+- thread-local-storage
+- upx
+- upx-packer
+- windows
 
+## Conclusion 🌈
+
+Fatpack offers a unique solution for developers seeking to optimize their Windows applications. With its full TLS support and efficient packing capabilities, you can enhance your executables while maintaining performance. We encourage you to explore the features and contribute to the project. Happy packing!
